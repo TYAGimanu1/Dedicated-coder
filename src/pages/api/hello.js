@@ -1,17 +1,21 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import *  as fs from 'fs';
-import { json } from 'stream/consumers';
+import * as fs from 'fs/promises';
+import path from 'path';
+
 export default async function handler(req, res) {
   let allblog = [];
-  let item = await fs.promises.readdir('blogdata');
-  let myfile;
-  for (let index = 0; index < item.length; index++) {
-    const element = item[index];
-    myfile = await fs.promises.readFile(('blogdata/' + element), 'utf-8');
-    
-    console.log(myfile);
-    allblog.push(JSON.parse(myfile));
-  }
+  try {
+    const dataDir = path.join(process.cwd(), 'blogdata');
+    const files = await fs.readdir(dataDir);
 
- res.status(200).json({allblog});
+    for (const file of files) {
+      const filePath = path.join(dataDir, file);
+      const fileContent = await fs.readFile(filePath, 'utf-8');
+      allblog.push(JSON.parse(fileContent));
+    }
+
+    res.status(200).json({ allblog });
+  } catch (error) {
+    console.error("Error fetching blog data:", error);
+    res.status(500).json({ error: 'Failed to retrieve blog data' });
+  }
 }

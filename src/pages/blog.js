@@ -8,11 +8,12 @@ const Blog = () => {
   const blogRef = useRef();
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/hello")
+    fetch("/api/hello")
       .then((res) => res.json())
       .then((data) => {
         setBlogs(data.allblog);
-      });
+      })
+      .catch((error) => console.error("Error fetching blog data:", error));
 
     // Intersection Observer for on-scroll animation
     const observer = new IntersectionObserver((entries) => {
@@ -33,7 +34,7 @@ const Blog = () => {
       }
     };
   }, []);
- 
+
   return (
     <div className='container'>
       <div 
@@ -41,7 +42,7 @@ const Blog = () => {
         ref={blogRef}
       >
         <h2>BLOG</h2>
-        {blogs.map((blogItem, index) => (
+        {blogs.length > 0 ? blogs.map((blogItem) => (
           <div key={blogItem.slug} className={styles.blogCard}>
             <h3>{blogItem.title}</h3>
             <p>{blogItem.minidesc}...</p>
@@ -49,7 +50,7 @@ const Blog = () => {
               <div className={styles.button}>Read more</div>
             </Link>
           </div>
-        ))}
+        )) : <p>Loading blogs or no blogs available...</p>}
       </div>
     </div>
   );

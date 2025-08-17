@@ -1,32 +1,37 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react';
 import styles from "@/styles/Blog.module.css";
-const Contact = () => {
- const [users,setUsers]=useState({name:"",email:"",mobile:"",course:"",city:""});
-  const handlesubmit=(e)=>{
-    e.preventDefault();
 
-  fetch("http://localhost:3000/api/postcontact",{
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(users),
-    }
-  )
-    .then((res) => res.text())
-    .then((data)=>{
-      console.log("Sucess");
-    })
-    .catch((err) => {
+const Contact = () => {
+  const [users, setUsers] = useState({ name: "", email: "", mobile: "", course: "" });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch("/api/postcontact", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(users),
+      });
+
+      if (res.ok) {
+        console.log("Success: Contact form submitted successfully.");
+        // Optionally, reset the form
+        setUsers({ name: "", email: "", mobile: "", course: "" });
+      } else {
+        console.error("Error: Failed to submit contact form.");
+      }
+    } catch (err) {
       console.error("Error:", err);
-    })
-  }
-  
- return (
+    }
+  };
+
+  return (
     <div className='container'>
       <div className={styles.textfields}>
         <h1>Fill Your Concern</h1>
-        <form onSubmit={handlesubmit}>
+        <form onSubmit={handleSubmit}>
           <div className={styles.formGroup}>
             <label htmlFor="name">Enter Name</label>
             <input
@@ -65,7 +70,7 @@ const Contact = () => {
             <textarea
               id="course"
               placeholder='Enter Course'
-              rows="5" // This makes the textarea bigger
+              rows="5"
               value={users.course}
               onChange={(e) => setUsers({ ...users, course: e.target.value })}
             />
@@ -77,4 +82,5 @@ const Contact = () => {
     </div>
   );
 };
-export default Contact
+
+export default Contact;
