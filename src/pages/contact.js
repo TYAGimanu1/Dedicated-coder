@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styles from "@/styles/Blog.module.css";
-const contact = () => {
+const Contact = () => {
  const [users,setUsers]=useState({name:"",email:"",mobile:"",course:"",city:""});
   const handlesubmit=(e)=>{
     e.preventDefault();
@@ -77,4 +77,4 @@ const contact = () => {
     </div>
   );
 };
-export default contact
+export default Contact

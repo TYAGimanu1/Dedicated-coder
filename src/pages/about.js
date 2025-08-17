@@ -2,7 +2,7 @@ import React from 'react'
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
 
-const about = () => {
+const About = () => {
   return (
     <>
     <div className='container'>
@@ -60,4 +60,4 @@ const about = () => {
   )
 }
 
-export default about
+export default About

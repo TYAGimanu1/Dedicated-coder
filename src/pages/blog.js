@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import styles from "@/styles/Blog.module.css";
 import Link from 'next/link';
 
-const blog = () => {
+const Blog = () => {
   const [blogs, setBlogs] = useState([]);
   const [inView, setInView] = useState(false);
   const blogRef = useRef();
@@ -55,4 +55,4 @@ const blog = () => {
   );
 };
 
-export default blog;
+export default Blog;

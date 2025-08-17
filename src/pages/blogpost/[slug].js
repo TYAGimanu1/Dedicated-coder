@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Image from "next/image";
 import styles from "@/styles/Blog.module.css";
-const slug = () => {
+const Slug = () => {
   
     const [blog,setblog]=useState();
      const router = useRouter()
@@ -40,4 +40,4 @@ const slug = () => {
   )
 }
 
-export default slug
+export default Slug
