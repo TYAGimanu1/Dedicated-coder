@@ -1,168 +1,307 @@
-.page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
 
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
+/* HEADER PAGE CSS */
+.header{
+  width: 100%;
+  height: 15vh;
+ box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
   align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
+  background-color: #f0f0f0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+.header ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.header ul li {
+  margin: 0 20px;
+  margin-top: 2vh;
+}
+.header ul li a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
 }
 
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
 
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
+/* ABOUT PAGE CSS */
+.aboutpage{
+  
+  max-width: 80%;
+  margin-left: 10%;
+  min-height: 70vh;
+  
+min-height: 70vh;
+  justify-content: space-between;
+ background-color: black;
+
+  display: flex;
+}
+.mtop{
+  margin-top: 2vh;
+}
+.textspace{
+  max-width: 64.8%;
+justify-content: justify;
+background-color:#f5f5f5;
+}
+.textspace p{
+  padding: 5% 5%;
+  font-size: 1.2rem;
+}
+.textspace ol{
+  margin-top: 2vh;
+
+  margin-left: 37%;
+}
+.textspace ol li{
+    font-weight: 400;
+    font-size: 20px;
+}
+.headings{
+  font-size: 2rem;
+
+  margin-top:3vh;
+  text-align: center;
+  color: #ffffff;
+}
+.imagecontainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 35%;
+  min-height: min-content;
+  position: relative;
+  background-color:#f5f5f5;
+}
+.image1 {
+  background-image: url("/coder.jpg");
+  width: 70%;
+height: 40vh;
+
+margin-top: 0 !important;
+border-radius: 50%;
+  background-color: #cccccc;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  animation: slide 10s infinite ;
+
+}
+.image2 {
+  background-image: url("https://static.vecteezy.com/system/resources/thumbnails/016/746/979/small_2x/freelancer-software-developer-programmer-coder-illustrator-vector.jpg");
+  width: 40%;
+  height: 18vh;
+  border-radius: 50%;
+  background-color: #cccccc;
+  border: 3px solid #ccc;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 29vh;
+  right: 030%;
+}
+.image1::after{
+  content: "";
+  position: absolute;
+  background-image: url("data:image/png;base64,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");
+   background-position: center;
+  background-repeat: no-repeat;
+  border: 3px solid #ccc;
+  background-size: cover;
+  bottom: 29vh;
+  right: 28%;
+  width: 40%;
+  height: 16vh;
+  border-radius: 50%;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+@keyframes slide {
+  0% { background-image: url("/coder.jpg"); }
+  50% {background-image: url("https://static.vecteezy.com/system/resources/thumbnails/016/746/979/small_2x/freelancer-software-developer-programmer-coder-illustrator-vector.jpg"); }
+  100% { background-image: url("https://www.shutterstock.com/image-photo/digital-technology-software-development-concept-600nw-2111828198.jpg"); }
 }
 
-.main {
+
+
+
+/* Home css */
+.homeconatiner{
+  width: 100%;
+  min-height: 120vh;
+  background-image: url(https://t4.ftcdn.net/jpg/01/28/98/53/360_F_128985367_mNdX0b56w6OcgiyUDnZwukpK1bkpfWwI.jpg);
+  background-size: cover;
+
+  margin-top: 16vh;
+  background-position: center;
+}
+.homeconatiner h1 {
+ 
+  width: 40%;
+  margin: 5vh 40%;
+  color: #f0f0f0;
+  height: 10vh;
+  
+}
+.button{
+  text-align: center;
+  margin-bottom: 3vh;
+}
+.blogCard {
+  background-color: #ffffff;
+   width: 70%;
+   margin-left: 15%;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  
+  margin-bottom:1vh ;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  border: 1px solid #e0e4eb;
+}
+
+/* Hover effect on blog cards */
+
+
+/* Blog Card Title */
+.blogCard h3 {
+  font-size: 1.5rem;
+  color: #3c4a6b;
+  margin-left: 2%;
+  margin-bottom: 0.5rem;
+}
+
+/* Blog Card Description */
+.blogCard p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #6a7182;
+  margin-bottom: 1.5rem;
+  margin-left: 2%;
+  padding: 1% 2%;
+}
+
+
+
+/* footer css */
+/* Footer Container */
+.footer {
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 3rem 1rem 2rem;
+  text-align: center;
+  /* The footer will now appear at the end of the content */
+}
+
+/* Footer Content Wrapper - Using Flexbox for a multi-column layout on desktop */
+.footerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: left;
+  gap: 10rem;
+}
+
+/* Footer Section Headings */
+.footerContent h3 {
+  color: #007bff;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+/* About Section */
+.footerAbout,
+.socialMedia,
+.newsletter {
+  flex: 3;
+ 
+}
+
+.footerAbout p {
+  color: #bbb;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Social Media Icons */
+.socialIcons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.socialIcons a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.socialIcons a:hover {
+  color: #007bff;
+}
+
+
+
+
+
+
+
+/* Footer Navigation - Aligned to the center within its column */
+.footerNav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
+  gap: 0.5rem;
 }
 
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
+.footerNav li a {
+  color: #bbb;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
+.footerNav li a:hover {
+  color: #007bff;
 }
 
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
+/* Copyright Section */
+.copyright {
+  font-size: 0.8rem;
+  color: #777;
+  border-top: 1px solid #444;
+  padding-top: 1rem;
+  margin-top: 2rem;
 }
 
-.ctas {
-  display: flex;
-  gap: 16px;
-}
-
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: none;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
-}
-
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
-}
-
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 158px;
-}
-
-.footer {
-  grid-row-start: 3;
-  display: flex;
-  gap: 24px;
-}
-
-.footer a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.footer img {
-  flex-shrink: 0;
-}
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-}
-
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
-
-  .main {
-    align-items: center;
-  }
-
-  .main ol {
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .footerContent {
+    flex-direction: column;
     text-align: center;
   }
-
-  .ctas {
-    flex-direction: column;
-  }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
+  
+  .footerNav {
     align-items: center;
+  }
+  
+  .socialIcons {
     justify-content: center;
   }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
+  
+  
 }

@@ -1,0 +1,272 @@
+/* Container for the entire page to apply background and centering */
+.blogpage {
+  background-image: url('https://t4.ftcdn.net/jpg/01/28/98/53/360_F_128985367_mNdX0b56w6OcgiyUDnZwukpK1bkpfWwI.jpg');
+  color: #333;
+  padding: 4rem 2rem;
+ 
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Page Title Styles */
+.blogpage h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+ color: white;
+  margin-bottom: 3rem;
+  letter-spacing: 1px;
+}
+
+/* Individual Blog Card Styles */
+.blogCard {
+  background-color: #ffffff;
+  
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  border: 1px solid #e0e4eb;
+}
+
+/* Hover effect on blog cards */
+.blogCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Blog Card Title */
+.blogCard h3 {
+  font-size: 1.5rem;
+  color: #3c4a6b;
+  margin-bottom: 0.5rem;
+}
+
+/* Blog Card Description */
+.blogCard p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #6a7182;
+  margin-bottom: 1.5rem;
+}
+
+/* Read More Button Styles */
+/* Styles for the button container */
+.button {
+  display: block; /* Make the button a block-level element to control its alignment */
+  width: fit-content; /* Make the button only as wide as its content */
+  margin: 0 auto; /* This centers the button horizontally within its parent */
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none; /* Removes the underline from the link */
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for depth */
+}
+
+/* Hover and active effects for a more interactive feel */
+.button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px); /* Lifts the button slightly on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.button:active {
+  transform: translateY(0); 
+}
+
+/* Keyframes for a smooth fade-in animation on page load or scroll */
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* The class added by JavaScript to trigger the animation */
+.fadeIn {
+  animation: fadeInAnimation 0.8s ease-out forwards;
+}
+
+/* Responsive Grid Layout for desktop */
+@media (min-width: 768px) {
+  .blogpage {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 4rem 5%;
+  }
+  .blogpage h2 {
+    grid-column: 1 / -1;
+  }
+}
+/* Styles for the main blog post content area */
+.singleblogcontainer{
+background-image:url(https://t4.ftcdn.net/jpg/01/28/98/53/360_F_128985367_mNdX0b56w6OcgiyUDnZwukpK1bkpfWwI.jpg) ;
+margin-top: 16vh;
+min-height: calc(min-content + 20vh);
+position:relative;
+}
+.singleblogpag{
+width: 80%;
+position: relative;
+
+margin-left: 10%;
+ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+color: #FFFFFF;
+height: min-content;
+text-align: center;
+min-height: 80vh;
+
+}
+.singleblogpag h1{
+ top: 10vh;
+  margin-bottom: 5vh;
+}
+.singleblogpage {
+  margin: auto;
+    max-width: 800px;
+    width: 100%;
+     background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    line-height: 1.6;
+    color: #333;
+    
+     /* Default for mobile */
+}
+
+/* Styles for the section containing the text */
+
+
+/* Styles for the image section */
+.singleblogimg {
+    min-width:40%;
+    min-height:20vh;
+    
+    margin-bottom: 20px;
+    margin: auto;
+}
+
+/* Make the image responsive */
+.singleblogimg img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.singleblogpage p{
+  text-align: center;
+
+}
+/* Media query for larger screens (e.g., tablets and desktops) */
+@media (min-width: 768px) {
+    .singleblogpage {
+        flex-direction: row; /* Change to row for side-by-side layout */
+        align-items: flex-start; /* Align items to the top */
+        gap: 40px; /* Space between the text and the image */
+    }
+
+    .singleblogpage .content-wrapper {
+        width: 60%; /* Allocate space for the text */
+    }
+
+    .singleblogimg {
+        width: 40%; /* Allocate space for the image */
+        margin-left: auto; /* Push the image to the right */
+        margin-bottom: 0;
+    }
+}
+
+
+/* Contact Page Css */
+
+.textfields {
+ 
+  border-radius: 12px;
+  
+  padding: 2.5rem;
+  
+  
+  margin: 2rem auto;
+  max-width: 600px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.textfields h1 {
+  font-size: 2.5rem;
+  color:white;
+
+  margin-bottom: 2rem;
+}
+
+.formGroup {
+  
+  text-align: left;
+}
+
+.formGroup label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #fffafa;
+}
+
+.textfields input[type="text"],
+.textfields input[type="email"],
+.textfields input[type="number"],
+.textfields textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box; /* Ensures padding doesn't affect the width */
+}
+
+/* Specific styling for the textarea to make it bigger */
+.textfields textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.textfields input:focus,
+.textfields textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+
+/* home page */
+
