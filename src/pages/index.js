@@ -2,9 +2,8 @@ import Head from "next/head";
 import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-
 import Link from "next/link";
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,24 +17,22 @@ const geistMono = Geist_Mono({
 
 export default function Home() {
   const [blogs, setBlogs] = useState([]);
-    
-  let b=0;
-    useEffect(() => {
-      fetch("http://localhost:3000/api/hello")
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data.allblog)
-          setBlogs(data.allblog.slice(0,3));
-        });
-      },[])
-    
-       
+
+  useEffect(() => {
+    fetch("/api/hello")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.allblog);
+        setBlogs(data.allblog.slice(0, 3));
+      })
+      .catch((error) => console.error("Error fetching blog data:", error));
+  }, []);
+
   return (
-   
-      <div className={styles.homeconatiner}>
+    <div className={styles.homeconatiner}>
       <h1>Dedicated Coder</h1>
-      
-      {blogs.map((blogItem, index) => (
+      {blogs.length > 0 ? (
+        blogs.map((blogItem) => (
           <div key={blogItem.slug} className={styles.blogCard}>
             <h3>{blogItem.title}</h3>
             <p>{blogItem.minidesc}...</p>
@@ -43,11 +40,10 @@ export default function Home() {
               <div className={styles.button}>Read more</div>
             </Link>
           </div>
-        ))}
-       
-      </div> 
-      
-   
+        ))
+      ) : (
+        <p>Loading blogs or no blogs available...</p>
+      )}
+    </div>
   );
 }
-
