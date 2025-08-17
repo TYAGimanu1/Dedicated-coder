@@ -9,7 +9,7 @@ const About = () => {
     <h1 className='aboutus-text' >About Us</h1>
     <div className={`${styles.aboutpage} `}>
       <div className={styles.textspace}>
-      <p>Welcome to Dedicated Coder, a dedicated space for developers and programming enthusiasts. Our journey began with a simple belief: that learning to code should be accessible, engaging, and practical. Here, we share our passion for technology by providing high-quality tutorials, thoughtful articles, and hands-on projects in web development. Whether you're taking your first steps into the world of programming or are a seasoned pro looking to sharpen your skills, our mission is to empower you with the knowledge and resources you need to build, create, and innovate. We believe in the power of code to transform ideas into reality, and we're excited to be a part of your development journey.</p>
+      <p>Welcome to Dedicated Coder, a dedicated space for developers and programming enthusiasts. Our journey began with a simple belief: that learning to code should be accessible, engaging, and practical. Here, we share our passion for technology by providing high-quality tutorials, thoughtful articles, and hands-on projects in web development. Whether youre taking your first steps into the world of programming or are a seasoned pro looking to sharpen your skills, our mission is to empower you with the knowledge and resources you need to build, create, and innovate. We believe in the power of code to transform ideas into reality, and were excited to be a part of your development journey.</p>
       </div>
       <div className={styles.imagecontainer}>
       <div className={styles.image1}>
